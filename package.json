@@ -21,5 +21,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "resolutions": {
+    "warning": "^3.0.0",
+    "babel-runtime": "^6.26.0"
+  }
 }
