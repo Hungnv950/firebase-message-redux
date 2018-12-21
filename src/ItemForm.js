@@ -1,35 +1,14 @@
 import React, { Component } from 'react';
 
 class ItemForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {currentItem: { text: '', key: '' },}
-  }
-  handleInput(e) {
-    const itemText = e.target.value
-    const currentItem = { text: itemText, key: Date.now() }
-    console.log(currentItem)
-    this.setState({
-      currentItem,
-    })
-  }
-  addItem(e) {
-    e.preventDefault()
-    const newItem = this.state.currentItem
-    if (newItem.text !== '') {
-      console.log(newItem)
-      this.setState({
-        currentItem: { text: '', key: '' },
-      })
-    }
-  }
+
   render() {
     return (
       <div className='todoListMain'>
-        <form onSubmit={this.addItem.bind(this)}>
+        <form onSubmit={this.props.addItem}>
           <input placeholder='Item' type='text' name='item'
-            value={this.state.currentItem.text}
-            onChange={this.handleInput.bind(this)}
+            value={this.props.currentItem.text}
+            onChange={this.props.handleInput}
           />
           <button type='submit'> Add Item </button>
         </form>
