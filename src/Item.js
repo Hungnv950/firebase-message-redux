@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 
 class Item extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { text: '1', key: '1' }
-  }
-
   render() {
-    return (
-      <>
-        <li>{this.state.text}</li>
-      </>
-    );
+    if(this.props.item) {
+      const item = this.props.item
+      return (
+        <>
+          <li key={item.key}>{item.text}</li>
+        </>
+      );
+    }
+    else {
+      return(<></>)
+    }
   }
 }
 
